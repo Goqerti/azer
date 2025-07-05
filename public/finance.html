@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maliyyə Paneli</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Maliyyə Paneli</h1>
+        <div class="nav-container" id="navContainer">
+            <nav>
+                <button id="navInzibatiXerclerBtn" class="active">İnzibati Xərclər</button>
+                <button id="navTotalFinanceBtn">Total Finance (Tezliklə)</button>
+                <button id="navFinanceOutgoingBtn">Finance Outgoing (Tezliklə)</button>
+                <button id="navFinanceIncomingBtn">Finance Incoming (Tezliklə)</button>
+                <a href="/logout" class="logout-btn">Çıxış</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div id="inzibatiXerclerView">
+            <h2>İnzibati Xərclər</h2>
+            <div class="filters-container">
+                <div>
+                    <label for="filterMonthExpenses">Aya görə filterlə:</label>
+                    <input type="month" id="filterMonthExpenses">
+                </div>
+                <button id="applyExpenseFilterBtn" class="filter-apply-btn">Filterlə</button>
+                <button id="resetExpenseFilterBtn" class="filter-reset-btn">Sıfırla</button>
+            </div>
+            <div class="modal-content" style="max-width: 1000px; margin: 20px auto;">
+                <h3 style="text-align:center;">Yeni Xərc Qeydiyyatı</h3>
+                <form id="expenseForm">
+                    <div class="form-group-inline">
+                        <div><label>İcarə:</label><input type="number" step="0.01" class="expense-input" id="icare" value="0"></div>
+                        <div><label>Kommunal:</label><input type="number" step="0.01" class="expense-input" id="kommunal" value="0"></div>
+                        <div><label>Telefon:</label><input type="number" step="0.01" class="expense-input" id="telefon" value="0"></div>
+                    </div>
+                    <div class="form-group-inline">
+                        <div><label>Ofis Xərci:</label><input type="number" step="0.01" class="expense-input" id="ofis_xerci" value="0"></div>
+                        <div><label>Reklam:</label><input type="number" step="0.01" class="expense-input" id="reklam" value="0"></div>
+                        <div><label>Maaş:</label><input type="number" step="0.01" class="expense-input" id="maas" value="0"></div>
+                    </div>
+                    <div class="form-group-inline">
+                        <div><label>Sosial Sığorta:</label><input type="number" step="0.01" class="expense-input" id="sosial_sigorta" value="0"></div>
+                        <div><label>İcbari Sığorta:</label><input type="number" step="0.01" class="expense-input" id="icbari_sigorta" value="0"></div>
+                        <div><label>Maşın Yanacaq:</label><input type="number" step="0.01" class="expense-input" id="masin_yanacaq" value="0"></div>
+                    </div>
+                     <div class="form-group-inline">
+                        <div><label>Günlük Xərclər:</label><input type="number" step="0.01" class="expense-input" id="gunluk_xercler" value="0"></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                     <hr>
+                    <div style="text-align: right; font-size: 1.2em; margin: 15px 0;">
+                        <strong>Yekun Məbləğ: <span id="totalAmount">0.00</span> AZN</strong>
+                    </div>
+                    <div style="text-align: center;">
+                       <button type="submit" class="add-order-btn" style="width: 250px;">Yaddaşa Yaz</button>
+                    </div>
+                </form>
+            </div>
+            
+            <h3 style="margin-top: 40px;">Xərclər Cədvəli</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tarix</th>
+                            <th>İcarə</th>
+                            <th>Kommunal</th>
+                            <th>Telefon</th>
+                            <th>Ofis</th>
+                            <th>Reklam</th>
+                            <th>Maaş</th>
+                            <th>Sos. Sığorta</th>
+                            <th>İcb. Sığorta</th>
+                            <th>Yanacaq</th>
+                            <th>Günlük</th>
+                            <th>Yekun</th>
+                            <th>Əməliyyatlar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expensesTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="totalFinanceView" style="display: none;">
+            <h2>Total Finance (Tezliklə)</h2>
+            <p>Bu səhifə hazırlanma mərhələsindədir.</p>
+        </div>
+        <div id="financeOutgoingView" style="display: none;">
+             <h2>Finance Outgoing (Tezliklə)</h2>
+             <p>Bu səhifə hazırlanma mərhələsindədir.</p>
+        </div>
+        <div id="financeIncomingView" style="display: none;">
+             <h2>Finance Incoming (Tezliklə)</h2>
+             <p>Bu səhifə hazırlanma mərhələsindədir.</p>
+        </div>
+    </main>
+
+    <div id="editExpenseModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Xərcə Düzəliş Et</h3>
+            <form id="editExpenseForm">
+                <input type="hidden" id="editExpenseId">
+                <div class="form-group-inline">
+                    <div><label>İcarə:</label><input type="number" step="0.01" class="expense-input" id="edit_icare"></div>
+                    <div><label>Kommunal:</label><input type="number" step="0.01" class="expense-input" id="edit_kommunal"></div>
+                    <div><label>Telefon:</label><input type="number" step="0.01" class="expense-input" id="edit_telefon"></div>
+                </div>
+                <div class="form-group-inline">
+                    <div><label>Ofis Xərci:</label><input type="number" step="0.01" class="expense-input" id="edit_ofis_xerci"></div>
+                    <div><label>Reklam:</label><input type="number" step="0.01" class="expense-input" id="edit_reklam"></div>
+                    <div><label>Maaş:</label><input type="number" step="0.01" class="expense-input" id="edit_maas"></div>
+                </div>
+                <div class="form-group-inline">
+                    <div><label>Sosial Sığorta:</label><input type="number" step="0.01" class="expense-input" id="edit_sosial_sigorta"></div>
+                    <div><label>İcbari Sığorta:</label><input type="number" step="0.01" class="expense-input" id="edit_icbari_sigorta"></div>
+                    <div><label>Maşın Yanacaq:</label><input type="number" step="0.01" class="expense-input" id="edit_masin_yanacaq"></div>
+                </div>
+                <div class="form-group-inline">
+                    <div><label>Günlük Xərclər:</label><input type="number" step="0.01" class="expense-input" id="edit_gunluk_xercler"></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <hr>
+                <div style="text-align: right; font-size: 1.2em; margin: 15px 0;">
+                    <strong>Yekun Məbləğ: <span id="editTotalAmount">0.00</span> AZN</strong>
+                </div>
+                <div style="text-align: center;">
+                   <button type="submit" class="add-order-btn" style="width: 250px;">Dəyişiklikləri Yadda Saxla</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="finance.js"></script>
+</body>
+</html>

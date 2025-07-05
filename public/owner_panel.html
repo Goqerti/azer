@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner İdarəetmə Paneli</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .control-panel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+        .control-card {
+            background-color: var(--surface-color);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .control-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .control-card .icon {
+            font-size: 3em;
+            color: var(--primary-action-color);
+            margin-bottom: 15px;
+        }
+        .control-card h3 {
+            margin-top: 0;
+            font-size: 1.4em;
+            color: var(--text-primary);
+        }
+        .control-card p {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            min-height: 40px;
+        }
+        .control-card .action-button {
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: var(--primary-action-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        .control-card .action-button.secondary {
+             background-color: var(--accent-color);
+        }
+        .control-card .action-button:hover {
+            background-color: var(--primary-action-hover);
+        }
+         .control-card .action-button.secondary:hover {
+            background-color: var(--accent-hover);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Owner İdarəetmə Paneli</h1>
+        <nav><a href="/logout" class="logout-btn">Çıxış</a></nav>
+    </header>
+    <main>
+        <div class="control-panel-grid">
+            <!-- Yeni İstifadəçi Qeydiyyatı -->
+            <div class="control-card">
+                <div class="icon"><i class="fas fa-user-plus"></i></div>
+                <h3>Yeni İstifadəçi</h3>
+                <p>Incoming və Outgoing şöbələri üçün yeni işçiləri sistemə əlavə edin.</p>
+                <a href="/register.html" class="action-button">Qeydiyyatdan Keçirt</a>
+            </div>
+
+            <!-- İcazələrin İdarəsi -->
+            <div class="control-card">
+                <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>İcazələrin İdarəsi</h3>
+                <p>İşçi rollarının sistemdəki (sifariş silmə, redaktə və s.) icazələrini tənzimləyin.</p>
+                <a href="/permissions.html" class="action-button">İcazələri Dəyiş</a>
+            </div>
+
+            <!-- Panellərə Şifrəsiz Giriş -->
+            <div class="control-card">
+                <div class="icon"><i class="fas fa-sign-in-alt"></i></div>
+                <h3>Panellərə Keçid</h3>
+                <p>Müxtəlif şöbələrin panellərinə şifrə daxil etmədən birbaşa keçid edin.</p>
+                <button class="action-button impersonate-btn" data-department="incoming">Incoming Panel</button>
+                <button class="action-button impersonate-btn" data-department="outgoing" style="margin-top: 10px;">Outgoing Panel</button>
+                <button class="action-button impersonate-btn secondary" data-department="finance" style="margin-top: 10px;">Finance Panel</button>
+            </div>
+        </div>
+    </main>
+    <script src="owner.js"></script>
+</body>
+</html>

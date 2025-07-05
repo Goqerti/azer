@@ -1,0 +1,2 @@
+{"icare":0,"kommunal":0,"telefon":0,"ofis_xerci":0,"reklam":0,"maas":0,"sosial_sigorta":0,"icbari_sigorta":55,"masin_yanacaq":0,"gunluk_xercler":0,"total":55,"id":"d53d331a-1d66-4c0c-8947-31a7056290f1","date":"2025-07-04T14:17:59.164Z"}
+{"icare":0,"kommunal":0,"telefon":0,"ofis_xerci":0,"reklam":0,"maas":0,"sosial_sigorta":0,"icbari_sigorta":0,"masin_yanacaq":555,"gunluk_xercler":0,"total":555,"id":"32536da4-23f6-4fa0-9f0f-458c1ae3a14e","date":"2025-07-04T14:18:07.244Z"}

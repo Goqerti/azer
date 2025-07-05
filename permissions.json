@@ -1,0 +1,12 @@
+{
+  "sirvan": {
+    "canEditOrder": false,
+    "canEditFinancials": false,
+    "canDeleteOrder": false
+  },
+  "ali": {
+    "canEditOrder": false,
+    "canEditFinancials": false,
+    "canDeleteOrder": false
+  }
+}

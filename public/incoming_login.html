@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>Incoming - Giriş</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page-body">
+    <div class="login-container">
+        <h1>Incoming Department</h1>
+        <form action="/login" method="POST">
+            <div class="input-group">
+                <label for="username">İstifadəçi adı:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Şifrə:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Daxil Ol</button>
+        </form>
+        <a href="/login.html" class="permissions-link" style="margin-top: 20px;">&#8592; Geri qayıt</a>
+    </div>
+</body>
+</html>

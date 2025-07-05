@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>Yeni İstifadəçi Qeydiyyatı</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page-body">
+    <div class="login-container" style="max-width: 500px;">
+        <h1>Yeni İstifadəçi Qeydiyyatı</h1>
+        <form id="registrationForm">
+            <div class="input-group">
+                <label>Şöbə:</label>
+                <select id="regDepartment" required>
+                    <option value="incoming" selected>Incoming</option>
+                    <option value="outgoing">Outgoing</option>
+                    <option value="finance">Finance</option>
+                    <option value="new_department">-- Yeni Şöbə Yarat --</option>
+                </select>
+                <!-- Yeni şöbə üçün input sahəsi -->
+                <input type="text" id="regNewDepartmentName" placeholder="Yeni şöbənin adını yazın" style="display: none; margin-top: 10px;">
+            </div>
+            <div class="input-group">
+                <label>Ad və Soyad:</label>
+                <input type="text" id="regDisplayName" required>
+            </div>
+            <div class="input-group">
+                <label>İstifadəçi Adı (login):</label>
+                <input type="text" id="regUsername" required>
+            </div>
+            <div class="input-group">
+                <label>E-poçt:</label>
+                <input type="email" id="regEmail" required>
+            </div>
+            <div class="input-group">
+                <label>Şifrə:</label>
+                <input type="password" id="regPassword" required>
+            </div>
+            <div class="input-group">
+                <label>Vəzifə (Rol):</label>
+                <input type="text" id="regRole" required placeholder="Məs: sales_manager, coordinator">
+            </div>
+            <button type="submit">İstifadəçini Yarat</button>
+        </form>
+        <div id="regMessage" style="margin-top: 15px;"></div>
+        <a href="/owner_panel.html" class="permissions-link" style="margin-top: 20px;">&#8592; Geri qayıt</a>
+    </div>
+    <script src="register.js"></script>
+</body>
+</html>

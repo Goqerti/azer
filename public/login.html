@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azerweys - Şöbə Seçimi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        .hub-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            font-family: 'Montserrat', sans-serif;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .hub-box {
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .hub-box h1 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .department-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .dept-btn {
+            display: block;
+            padding: 20px 30px;
+            background-color: rgba(255, 255, 255, 0.25);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dept-btn:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="hub-container">
+        <div class="hub-box">
+            <h1>Şöbənizi seçin</h1>
+            <div class="department-buttons">
+                <a href="/incoming_login.html" class="dept-btn">Incoming</a>
+                <a href="/outlogin.html" class="dept-btn">Outgoing</a>
+                <a href="/finance_login.html" class="dept-btn">Finance</a>
+                <!-- DÜZƏLİŞ: Bu düymə /owner_login.html səhifəsinə yönləndirməlidir -->
+                <a href="/owner_login.html" class="dept-btn">Owner / Admin</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

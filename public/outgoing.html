@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outgoing - Turizm Mühasibat Sistemi</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1 id="main-header-title">Outgoing Department</h1>
+        <nav>
+            <button id="navSatishlarBtn" class="active">Satışlar</button>
+            <button id="navRezervasiyalarBtn">Rezervasiyalar</button>
+            <a href="/logout" class="logout-btn">Çıxış</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="satishlarView"> 
+            <h2>Satışlar Cədvəli</h2>
+            <div class="actions">
+                <button id="showAddOrderFormBtn" class="add-order-btn">Yeni sifariş əlavə et</button>
+            </div>
+            
+            <div class="table-container" style="margin-top: 20px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Satış №</th>
+                            <th>Yaradılma Tarixi</th> 
+                            <th>Rez. №</th> 
+                            <th>Turist</th>
+                            <th>Böyük</th> 
+                            <th>Uşaq</th>  
+                            <th>Xarici şirkət</th>
+                            <th>Otel Adı (İlk)</th>
+                            <th>Alış Qiyməti</th>
+                            <th>Satış Qiyməti</th>
+                            <th>Gəlir</th>
+                            <th>Status</th>
+                            <th>Əməliyyatlar</th>
+                            <th>Qeyd</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                        <!-- Məlumatlar out_app.js ilə yüklənəcək -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Sifariş əlavə etmə/redaktə modalı -->
+        <div id="addOrderModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" title="Bağla">&times;</span>
+                <h3>Yeni Sifariş Əlavə Et</h3>
+                <form id="addOrderForm">
+                    <h4>Əsas Məlumatlar</h4>
+                    <label for="turist">Turist:</label>
+                    <input type="text" id="turist" name="turist" required>
+                    <label for="xariciSirket">Xarici şirkət:</label>
+                    <input type="text" id="xariciSirket" name="xariciSirket">
+                    <div class="form-group-inline">
+                        <div>
+                            <label for="adultGuests">Böyük Qonaq Sayı:</label>
+                            <input type="number" id="adultGuests" name="adultGuests" min="0" value="1">
+                        </div>
+                        <div>
+                            <label for="childGuests">Uşaq Qonaq Sayı:</label>
+                            <input type="number" id="childGuests" name="childGuests" min="0" value="0">
+                        </div>
+                    </div>
+                    <label for="rezNomresi">Rez. nömrəsi:</label>
+                    <input type="text" id="rezNomresi" name="rezNomresi"> 
+
+                    <hr>
+                    <h4>Otel Məlumatları</h4>
+                    <div id="hotelEntriesContainer"></div>
+                    <button type="button" id="addHotelBtn" class="action-btn-small">+</button>
+
+                    <hr>
+                    <h4>Maliyyə Məlumatları</h4>
+                    <div class="form-group-inline">
+                         <div>
+                            <label for="alishAmount">Alış Qiyməti:</label>
+                            <input type="number" step="0.01" id="alishAmount" name="alishAmount" value="0" readonly>
+                        </div>
+                        <div>
+                            <label for="satishAmount">Satış Qiyməti:</label>
+                            <input type="number" step="0.01" id="satishAmount" name="satishAmount" value="0">
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    <h4>Digər</h4>
+                    <label for="status">Status:</label>
+                    <select id="status" name="status">
+                        <option value="Davam edir" selected>Davam edir</option>
+                        <option value="Bitdi">Bitdi</option>
+                        <option value="Ləğv edildi">Ləğv edildi</option>
+                    </select>
+                    <label for="qeyd">Qeyd:</label>
+                    <input type="text" id="qeyd" name="qeyd">
+
+                    <button type="submit">Sifarişi Əlavə Et</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <!-- out_app.js faylına link -->
+    <script src="out_app.js"></script>
+</body>
+</html>
